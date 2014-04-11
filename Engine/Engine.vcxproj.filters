@@ -24,6 +24,9 @@
     <ClCompile Include="E_Files\Source\Shaders\NonLightShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="E_Files\Source\ResourcesLodaer\RcLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="E_Header\E_Engine.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="E_Files\Headers\Shaders\NonLightShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E_Files\Headers\ResourcesLoader\RcLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -64,11 +64,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="E_Files\Source\ResourcesLodaer\RcLoader.cpp" />
     <ClCompile Include="E_Files\Source\Shaders\NonLightShader.cpp" />
     <ClCompile Include="E_Source\E_Source.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="E_Files\Headers\ResourcesLoader\RcLoader.h" />
     <ClInclude Include="E_Files\Headers\Shaders\NonLightShader.h" />
     <ClInclude Include="E_Files\Headers\Shaders\Shader.h" />
     <ClInclude Include="E_Files\Resources\shaders.h" />
