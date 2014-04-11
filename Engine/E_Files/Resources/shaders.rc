@@ -1,0 +1,6 @@
+#pragma once
+
+#include "shaders.h"
+
+RE_NON_LIGHT_VERTEX_SHADER    RCDATA "Shaders/NonLight/VertexShader.txt"
+RE_NON_LIGHT_FRAGMENT_SHADER  RCDATA "Shaders/NonLight/FragmentShader.txt"
