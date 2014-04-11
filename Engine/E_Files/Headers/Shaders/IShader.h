@@ -17,6 +17,5 @@ public:
 	virtual void Draw(GLuint index, GLuint vertices) = 0;
 	virtual void Use() = 0;
 
-	IShader();
 	virtual ~IShader();
 };
