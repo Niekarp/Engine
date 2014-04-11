@@ -9,8 +9,8 @@ void NonLightShader::Load(){
 		MessageBox(0, "Wystapil problem przy wczytywaniu zasobow do NonLightShader'a", "Error", 0);
 	}
 
-	HGLOBAL vertex_shader = RcLoad(RE_NON_LIGHT_VERTEX_SHADER);
-	HGLOBAL fragment_shader = RcLoad(RE_NON_LIGHT_FRAGMENT_SHADER);
+	LPVOID vertex_shader   = RcLoad(RE_NON_LIGHT_VERTEX_SHADER);
+	LPVOID fragment_shader = RcLoad(RE_NON_LIGHT_FRAGMENT_SHADER);
 	GLuint ivs = glCreateShader(GL_VERTEX_SHADER);
 	GLuint ifs = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(ivs, 1, (const char**)vertex_shader, 0);

@@ -2,4 +2,4 @@
 
 #include <Windows.h>
 
-HGLOBAL RcLoad(int RESOURCE_ID);
+LPVOID RcLoad(int RESOURCE_ID);
