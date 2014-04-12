@@ -6,8 +6,6 @@
 #include "../../Libs/glm/gtx/transform.hpp"
 #include "../../Resources/shaders.h"
 #include "../ResourcesLoader/RcLoader.h"
-#pragma comment ( lib, "opengl32.lib" )
-#pragma comment ( lib, "E_Files/Libs/glew/glew32.lib" )
 
 class IShader{
 public:
