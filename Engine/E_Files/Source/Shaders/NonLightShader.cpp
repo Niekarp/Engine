@@ -1,12 +1,12 @@
 #include "../../Headers/Shaders/NonLightShader.h"
 
 void NonLightShader::Load(){
-	LPVOID vertex_shader   = RcLoad(RE_NON_LIGHT_VERTEX_SHADER);
-	LPVOID fragment_shader = RcLoad(RE_NON_LIGHT_FRAGMENT_SHADER);
+	Data vertex_shader   = RcLoad(RE_NON_LIGHT_VERTEX_SHADER);
+	Data fragment_shader = RcLoad(RE_NON_LIGHT_FRAGMENT_SHADER);
 	GLuint ivs = glCreateShader(GL_VERTEX_SHADER);
 	GLuint ifs = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(ivs, 1, (const char**)vertex_shader, 0);
-	glShaderSource(ifs, 1, (const char**)fragment_shader, 0);
+	glShaderSource(ivs, 1, (const char**)vertex_shader.res, 0);
+	glShaderSource(ifs, 1, (const char**)fragment_shader.res, 0);
 
 	glAttachShader(program, ivs);
 	glAttachShader(program, ifs);
@@ -27,8 +27,7 @@ void NonLightShader::PassAtrib(GLuint argument, GLuint data_pointer){
 		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, 0);
 		break;
 	default:
-		throw;
-		break;
+		throw "Blad podczas przekazywania atrybutu do NonLightShader'a";
 	};
 }
 void NonLightShader::PassUnif(GLuint argument, GLuint data_pointer){
@@ -40,8 +39,7 @@ void NonLightShader::PassUnif(GLuint argument, GLuint data_pointer){
 		glUniform3fv(1, 1, (const GLfloat*)data_pointer);
 		break;
 	default:
-		throw;
-		break;
+		throw "Blad podczas przekazywania uniformu do NonLightShader'a";
 	};
 }
 void NonLightShader::Draw(GLuint index, GLuint vertices){
