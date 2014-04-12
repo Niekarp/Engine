@@ -24,6 +24,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		IShader* shader;
 		shader = new NonLightShader;
 		shader->Load();
+		delete shader;
 	}
 	catch (const char* error){
 		MessageBox(0, error, "Error", 0);
