@@ -5,9 +5,9 @@ void NonLightShader::Load(){
 	Data fragment_shader = RcLoad(RE_NON_LIGHT_FRAGMENT_SHADER);
 	GLuint ivs = glCreateShader(GL_VERTEX_SHADER);
 	GLuint ifs = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(ivs, 1, (const char**)vertex_shader.res, (GLint*)vertex_shader.res_size);
-	glShaderSource(ifs, 1, (const char**)fragment_shader.res, 0);
-
+	glShaderSource(ivs, 1, (const char**)vertex_shader.res, (GLint*)&vertex_shader.res_size);
+	glShaderSource(ifs, 1, (const char**)fragment_shader.res, (GLint*)&fragment_shader);
+	
 	glAttachShader(program, ivs);
 	glAttachShader(program, ifs);
 	glLinkProgram(program);
