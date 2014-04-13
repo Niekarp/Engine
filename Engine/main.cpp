@@ -21,8 +21,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	glm::mat4 mvp;
 	Shaders* shaders = new Shaders;
 	try{
-		shaders->ls->Load();
-		shaders->ls->PassUnif(0, (GLuint)&mvp);
+		shaders->ls->PassUnif(0, (const GLfloat*)&mvp);
 	}
 	catch (const char* error){
 		MessageBox(0, error, "Error", 0);

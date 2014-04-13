@@ -11,7 +11,7 @@ class IShader{
 public:
 	virtual void Load() = 0;
 	virtual void PassAtrib(GLuint argument, GLuint data_pointer) = 0;
-	virtual void PassUnif(GLuint argument, GLuint data_pointer) = 0;
+	virtual void PassUnif(GLuint argument, const GLfloat* data_pointer) = 0;
 	virtual void Draw(GLuint index, GLuint vertices) = 0;
 	virtual void Use() = 0;
 

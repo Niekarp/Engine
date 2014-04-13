@@ -30,16 +30,16 @@ void LightShader::PassAtrib(GLuint argument, GLuint data_pointer){
 		throw "Blad podczas przekazywania atrybutu do NonLightShader'a";
 	};
 }
-void LightShader::PassUnif(GLuint argument, GLuint data_pointer){
+void LightShader::PassUnif(GLuint argument, const GLfloat* data_pointer){
 	switch (argument){
 	case 0:
-		glUniformMatrix4fv(0, 1, GL_FALSE, (const GLfloat*)data_pointer);
+		glUniformMatrix4fv(0, 1, GL_FALSE, data_pointer);
 		break;
 	case 1:
-		glUniform3fv(1, 1, (const GLfloat*)data_pointer);
+		glUniform3fv(1, 1, data_pointer);
 		break;
 	case 2:
-		glUniform3fv(2, 1, (const GLfloat*)data_pointer);
+		glUniform3fv(2, 1, data_pointer);
 		break;
 	default:
 		throw "Blad podczas przekazywania uniformu do NonLightShader'a";
