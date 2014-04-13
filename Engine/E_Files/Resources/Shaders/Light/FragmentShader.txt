@@ -1,0 +1,11 @@
+#version 330 core
+
+in vec2 UV;
+in float diffuse;
+
+out vec3 ready_pixel;
+uniform sampler2D TextureSampler;
+
+void main(){
+  ready_pixel = texture( TextureSampler, UV ).rgb * diffuse;
+}
