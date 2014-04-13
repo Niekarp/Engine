@@ -5,7 +5,7 @@ layout(location = 0)in vec3 vertex;
 layout(location = 1)in vec3 normal;
 layout(location = 2)in vec2 vertexUV;
 layout(location = 0)uniform mat4 mvp;
-layout(location = 1)unifrom vec3 lightDir;
+layout(location = 1)uniform vec3 lightDir;
 
 out vec2 UV;
 

@@ -4,3 +4,6 @@
 
 RE_NON_LIGHT_VERTEX_SHADER    RCDATA "Shaders/NonLight/VertexShader.txt"
 RE_NON_LIGHT_FRAGMENT_SHADER  RCDATA "Shaders/NonLight/FragmentShader.txt"
+
+RE_LIGHT_VERTEX_SHADER   RCDATA "Shaders/Light/VertexShader.txt"
+RE_LIGHT_FRAGMENT_SHADER RCDATA "Shaders/Light/FragmentShader.txt"
