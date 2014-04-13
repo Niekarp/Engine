@@ -43,7 +43,7 @@ void NonLightShader::PassUnif(GLuint argument, GLuint data_pointer){
 	};
 }
 void NonLightShader::Draw(GLuint index, GLuint vertices){
-	glBindBuffer(GL_ARRAY_BUFFER, index);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index);
 	glDrawElements(GL_TRIANGLES, vertices, GL_UNSIGNED_INT, 0);
 }
 void NonLightShader::Use(){

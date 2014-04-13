@@ -6,12 +6,23 @@ layout(location = 1)in vec3 normal;
 layout(location = 2)in vec2 vertexUV;
 layout(location = 0)uniform mat4 mvp;
 layout(location = 1)uniform vec3 lightDir;
+layout(location = 2)uniform vec3 ambientLight;
 
 out vec2 UV;
 out float diffuse;
+out vec3 ambient;
+out bool lightType;
 
 void main(){
   gl_Position = mvp * vec4(vertex, 1);
   UV = vertexUV;
-  diffuse = max(dot(normal, lightDir), 0);
+
+  if ( lightDir == vec3(0, 0, 0) )
+     lightType = 0;
+  else{
+     lightType = 1;
+     diffuse = max(dot(normal, lightDir), 0);
+  }
+
+  ambient = ambientLight;
 }

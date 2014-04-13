@@ -38,12 +38,15 @@ void LightShader::PassUnif(GLuint argument, GLuint data_pointer){
 	case 1:
 		glUniform3fv(1, 1, (const GLfloat*)data_pointer);
 		break;
+	case 2:
+		glUniform3fv(2, 1, (const GLfloat*)data_pointer);
+		break;
 	default:
 		throw "Blad podczas przekazywania uniformu do NonLightShader'a";
 	};
 }
 void LightShader::Draw(GLuint index, GLuint vertices){
-	glBindBuffer(GL_ARRAY_BUFFER, index);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index);
 	glDrawElements(GL_TRIANGLES, vertices, GL_UNSIGNED_INT, 0);
 }
 void LightShader::Use(){

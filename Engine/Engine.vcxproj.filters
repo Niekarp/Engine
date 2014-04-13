@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Shaders">
+      <UniqueIdentifier>{b8449f21-727b-4801-bb08-49b399879430}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RcLoader">
+      <UniqueIdentifier>{6f273f3e-8967-437b-bb4e-e9abce1128e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shaders">
+      <UniqueIdentifier>{0d5b154b-97e1-4332-9bd9-61cc69c15ec7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RcLoader">
+      <UniqueIdentifier>{faa46e22-4cba-4282-ac4c-cc70ea9240a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -22,16 +34,19 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="E_Files\Source\Shaders\NonLightShader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="E_Files\Source\ResourcesLodaer\RcLoader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="E_Files\Source\Shaders\IShader.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Shaders</Filter>
     </ClCompile>
     <ClCompile Include="E_Files\Source\Shaders\LightShader.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="E_Files\Source\Shaders\IShader.cpp">
+      <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="E_Files\Source\ResourcesLodaer\RcLoader.cpp">
+      <Filter>Source Files\RcLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="E_Files\Source\Shaders\Shaders.cpp">
+      <Filter>Source Files\Shaders</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -41,17 +56,20 @@
     <ClInclude Include="E_Files\Resources\shaders.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="E_Files\Headers\Shaders\NonLightShader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="E_Files\Headers\ResourcesLoader\RcLoader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="E_Files\Headers\Shaders\IShader.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Shaders</Filter>
     </ClInclude>
     <ClInclude Include="E_Files\Headers\Shaders\LightShader.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="E_Files\Headers\Shaders\NonLightShader.h">
+      <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="E_Files\Headers\ResourcesLoader\RcLoader.h">
+      <Filter>Header Files\RcLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="E_Files\Headers\Shaders\Shaders.h">
+      <Filter>Header Files\Shaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,11 +1,16 @@
 #version 330 core
 
-in vec2 UV;
+in vec2  UV;
 in float diffuse;
+in vec3  ambient;
+in bool  lightType;
 
 out vec3 ready_pixel;
 uniform sampler2D TextureSampler;
 
 void main(){
-  ready_pixel = texture( TextureSampler, UV ).rgb * diffuse;
+  if (lightType == 0)
+     ready_pixel = texture( TextureSampler, UV ).rgb * ambient;
+  else
+     ready_pixel = texture( TextureSampler, UV ).rgb * ambient * diffuse;
 }
