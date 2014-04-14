@@ -64,20 +64,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="E_Files\Source\Model\Model.cpp" />
     <ClCompile Include="E_Files\Source\ResourcesLodaer\RcLoader.cpp" />
     <ClCompile Include="E_Files\Source\Shaders\IShader.cpp" />
     <ClCompile Include="E_Files\Source\Shaders\LightShader.cpp" />
     <ClCompile Include="E_Files\Source\Shaders\NonLightShader.cpp" />
-    <ClCompile Include="E_Files\Source\Shaders\Shaders.cpp" />
+    <ClCompile Include="E_Files\Source\Shaders\Shader.cpp" />
     <ClCompile Include="E_Source\E_Source.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="E_Files\Headers\Model\Model.h" />
     <ClInclude Include="E_Files\Headers\ResourcesLoader\RcLoader.h" />
     <ClInclude Include="E_Files\Headers\Shaders\LightShader.h" />
     <ClInclude Include="E_Files\Headers\Shaders\NonLightShader.h" />
     <ClInclude Include="E_Files\Headers\Shaders\IShader.h" />
-    <ClInclude Include="E_Files\Headers\Shaders\Shaders.h" />
+    <ClInclude Include="E_Files\Headers\Shaders\Shader.h" />
     <ClInclude Include="E_Files\Resources\shaders.h" />
     <ClInclude Include="E_Header\E_Engine.h" />
   </ItemGroup>

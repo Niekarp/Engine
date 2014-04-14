@@ -3,7 +3,9 @@
 #include "E_Files\Libs\glew\glew.h"
 #include "E_Files\Libs\glfw\glfw3.h"
 #include "E_Files\Resources\shaders.h"
-#include "E_Files\Headers\Shaders\Shaders.h"
+#include "E_Files\Headers\Shaders\Shader.h"
+
+#include "E_Files\Headers\Model\Model.h"
 
 #pragma comment ( lib, "opengl32.lib" )
 #pragma comment ( lib, "E_Files/Libs/glew/glew32.lib" )
@@ -18,10 +20,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	glViewport(0, 0, 1500, 800);
 
-	glm::mat4 mvp;
-	Shaders* shaders = new Shaders;
+	
 	try{
-		shaders->ls->PassUnif(0, (const GLfloat*)&mvp);
+		
 	}
 	catch (const char* error){
 		MessageBox(0, error, "Error", 0);

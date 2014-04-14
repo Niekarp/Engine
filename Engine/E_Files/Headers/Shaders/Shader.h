@@ -4,10 +4,17 @@
 #include "LightShader.h"
 #include "NonLightShader.h"
 
-class Shaders{
+#include "../Model/Model.h"
+
+class Shader{
 public:
+	void Draw(Model* tap_madl);
+
+	Shader();
+	~Shader();
+private:
+	IShader* shader;
+
 	IShader* nls;
 	IShader* ls;
-	Shaders();
-	~Shaders();
 };

@@ -25,6 +25,12 @@
     <Filter Include="Header Files\RcLoader">
       <UniqueIdentifier>{faa46e22-4cba-4282-ac4c-cc70ea9240a5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{dae4320a-0b96-4956-b58a-12954c2b630d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model">
+      <UniqueIdentifier>{462bb75b-47be-4fdf-9b63-1d7b57b96048}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,8 +51,11 @@
     <ClCompile Include="E_Files\Source\ResourcesLodaer\RcLoader.cpp">
       <Filter>Source Files\RcLoader</Filter>
     </ClCompile>
-    <ClCompile Include="E_Files\Source\Shaders\Shaders.cpp">
+    <ClCompile Include="E_Files\Source\Shaders\Shader.cpp">
       <Filter>Source Files\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="E_Files\Source\Model\Model.cpp">
+      <Filter>Source Files\Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,8 +77,11 @@
     <ClInclude Include="E_Files\Headers\ResourcesLoader\RcLoader.h">
       <Filter>Header Files\RcLoader</Filter>
     </ClInclude>
-    <ClInclude Include="E_Files\Headers\Shaders\Shaders.h">
+    <ClInclude Include="E_Files\Headers\Shaders\Shader.h">
       <Filter>Header Files\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="E_Files\Headers\Model\Model.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
