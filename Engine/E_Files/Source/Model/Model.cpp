@@ -5,13 +5,16 @@
 
 Model::Model(const char* link,
 	glm::vec3 poz,
-	glm::vec3 size)
+	glm::vec3 size,
+	MODEL_TYPE mType)
 {
 	Load(link);
 	Move(poz);
 	Size(size);
+	modelType = mType;
 }
 Model::Model(){
+	throw "Nie podano parametrow tworzonego modelu";
 }
 Model::~Model(){
 	glDeleteBuffers(4, bos);
@@ -137,9 +140,12 @@ void Model::Move(glm::vec3 position){
 void Model::Size(glm::vec3 size){
 	modelMatrix *= glm::scale(size);
 }
+MODEL_TYPE Model::Type(){
+	return modelType;
+}
 
-glm::mat4 Model::Matrix(){
-	return modelMatrix;
+const GLfloat* Model::Matrix(){
+	return (const GLfloat*)&modelMatrix;
 }
 GLuint    Model::Bos(GLuint index){
 	if (index > 4 || index < 0)

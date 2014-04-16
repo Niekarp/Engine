@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Model">
       <UniqueIdentifier>{462bb75b-47be-4fdf-9b63-1d7b57b96048}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Scene">
+      <UniqueIdentifier>{ad70ca9d-7c73-47ec-aaac-7aec3346c99a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{fb602d8f-9a75-4877-b222-ec04218d5208}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -57,6 +63,9 @@
     <ClCompile Include="E_Files\Source\Model\Model.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
+    <ClCompile Include="E_Files\Source\Scene\Scene.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="E_Header\E_Engine.h">
@@ -82,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="E_Files\Headers\Model\Model.h">
       <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="E_Files\Headers\Scene\Scene.h">
+      <Filter>Header Files\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

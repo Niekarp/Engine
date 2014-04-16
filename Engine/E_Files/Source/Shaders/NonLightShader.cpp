@@ -35,9 +35,6 @@ void NonLightShader::PassUnif(GLuint argument, const GLfloat* data_pointer){
 	case 0:
 		glUniformMatrix4fv(0, 1, GL_FALSE, data_pointer);
 		break;
-	case 1:
-		glUniform3fv(1, 1, data_pointer);
-		break;
 	default:
 		throw "Blad podczas przekazywania uniformu do NonLightShader'a";
 	};

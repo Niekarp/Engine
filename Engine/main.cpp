@@ -5,7 +5,7 @@
 #include "E_Files\Resources\shaders.h"
 #include "E_Files\Headers\Shaders\Shader.h"
 
-#include "E_Files\Headers\Model\Model.h"
+#include "E_Files\Headers\Scene\Scene.h"
 
 #pragma comment ( lib, "opengl32.lib" )
 #pragma comment ( lib, "E_Files/Libs/glew/glew32.lib" )
@@ -19,15 +19,30 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	glewInit();
 
 	glViewport(0, 0, 1500, 800);
+    
+	Shader* shader = new Shader;
 
-	
-	try{
-		
+	Scene* scena;
+	scena = new Scene;
+	scena->AddObject("test.ply",
+		glm::vec3(0, 0, 1),
+		glm::vec3(0.5, 0.5, 0.5),
+		NON_LIGHTED);
+	while (glfwGetKey(win, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(win)){
+		try{
+			glClear(GL_COLOR_BUFFER_BIT);
+			glfwPollEvents();
+
+			
+			
+			shader->Draw(scena);
+
+			glfwSwapBuffers(win);
+		}
+		catch (const char* error){
+			MessageBox(0, error, "Error", 0);
+		}
 	}
-	catch (const char* error){
-		MessageBox(0, error, "Error", 0);
-	}
-	
 	glfwDestroyWindow(win);
 	return 0;
 }

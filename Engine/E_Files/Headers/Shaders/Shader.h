@@ -5,10 +5,11 @@
 #include "NonLightShader.h"
 
 #include "../Model/Model.h"
+#include "../Scene/Scene.h"
 
 class Shader{
 public:
-	void Draw(Model* tap_madl);
+	void Draw(Scene* scene);
 
 	Shader();
 	~Shader();
