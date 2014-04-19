@@ -1,8 +1,11 @@
 #pragma once
 
+#include <stdio.h>
+
 #include "../../Libs/glew/glew.h"
 #include "../../Libs/glm/glm.hpp"
 #include "../../Libs/glm/gtx/transform.hpp"
+#include "../../Libs/glfw/glfw3.h"
 
 
 enum MODEL_TYPE{
@@ -12,28 +15,33 @@ enum MODEL_TYPE{
 };
 class Model{
 public:
-	Model(const char* link,
+	Model(const char* file_ply,
+		const char* texturePath,
 		glm::vec3 poz,
 		glm::vec3 size,
 		MODEL_TYPE modelType);
 	Model();
 	~Model();
 
-	void Load(const char* link);
+	void LoadPLY(const char* ply);
+	void LoadTexture(const char* imagepath);
 	void Move(glm::vec3 position);
 	void Size(glm::vec3 size);
-	MODEL_TYPE Type();
 
+	MODEL_TYPE     Type();
 	const GLfloat* Matrix();
 	GLuint    Bos(GLuint index);
+	GLuint    Texture();
 	GLuint    TriangleN();
 	glm::vec3 Position();
 	glm::vec3 Size();
 private:
 	MODEL_TYPE modelType;
-	glm::mat4 modelMatrix;
-	GLuint    bos[4];
-	GLuint    triangleNumber;
+	glm::mat4  modelMatrix;
+	GLuint     textureID;
+	GLuint     bos[4];
+	GLuint     triangleNumber;
+
 	glm::vec3 position;
 	glm::vec3 size;
 };

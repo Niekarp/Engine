@@ -3,12 +3,14 @@
 #include "../../Libs/glm/glm.hpp"
 #include "../../Headers/Model/Model.h"
 
-Model::Model(const char* link,
+Model::Model(const char* file_ply,
+	const char* texturePath,
 	glm::vec3 poz,
 	glm::vec3 size,
 	MODEL_TYPE mType)
 {
-	Load(link);
+	LoadPLY(file_ply);
+	LoadTexture(texturePath);
 	Move(poz);
 	Size(size);
 	modelType = mType;
@@ -18,9 +20,10 @@ Model::Model(){
 }
 Model::~Model(){
 	glDeleteBuffers(4, bos);
+	glDeleteTextures(1, &textureID);
 }
 
-void Model::Load(const char* filename){
+void Model::LoadPLY(const char* filename){
 	FILE* file;
 	if (fopen_s(&file, filename, "r") != 0){
 		perror("Wystapil blad");
@@ -134,18 +137,62 @@ void Model::Load(const char* filename){
 	delete[] uv;
 	indyk.clear();
 }
+void Model::LoadTexture(const char* imagepath){
+	unsigned char header[54];
+	unsigned int dataPos;
+	unsigned int width, height;
+	unsigned int imageSize;
+
+	unsigned char* data;
+
+	FILE* file = fopen(imagepath, "r");
+	if (!file) 
+		throw "Problem z otwarciem pliku z textura";
+	if (fread(header, 1, 54, file) != 54)
+		throw "Problem z wczytywaniem tekstury";
+	if (header[0] != 'B' || header[1] != 'M')
+		throw "Niepoprawny format pliku z textura";
+	
+	dataPos   = *(int*)&(header[0x0A]);
+	imageSize = *(int*)&(header[0x22]);
+	width     = *(int*)&(header[0x12]);
+	height    = *(int*)&(header[0x16]);
+
+	if (imageSize == 0) imageSize = width * height * 3;
+	if (dataPos == 0) dataPos = 54;
+
+	data = new unsigned char[imageSize];
+
+	fread(data, 1, imageSize, file);
+
+	fclose(file);
+
+
+	GLuint makedTexture;
+	glBindTexture(GL_TEXTURE_2D, makedTexture);
+	glTexImage2D(GL_TRIANGLES, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, data);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+	textureID = makedTexture;
+	
+	glDeleteTextures(1, &makedTexture);
+}
 void Model::Move(glm::vec3 position){
 	modelMatrix *= glm::translate(position);
 }
 void Model::Size(glm::vec3 size){
 	modelMatrix *= glm::scale(size);
 }
+
 MODEL_TYPE Model::Type(){
 	return modelType;
 }
-
 const GLfloat* Model::Matrix(){
 	return (const GLfloat*)&modelMatrix;
+}
+GLuint    Model::Texture(){
+	return textureID;
 }
 GLuint    Model::Bos(GLuint index){
 	if (index > 4 || index < 0)
