@@ -22,20 +22,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     
 	Shader* shader = new Shader;
 
-	Scene* scena;
-	scena = new Scene;
-	scena->AddObject("test.ply",
-		glm::vec3(0, 0, 1),
-		glm::vec3(0.5, 0.5, 0.5),
-		NON_LIGHTED);
 	while (glfwGetKey(win, GLFW_KEY_ESCAPE) != GLFW_PRESS && !glfwWindowShouldClose(win)){
 		try{
 			glClear(GL_COLOR_BUFFER_BIT);
 			glfwPollEvents();
-
-			
-			
-			shader->Draw(scena);
 
 			glfwSwapBuffers(win);
 		}

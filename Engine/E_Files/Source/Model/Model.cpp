@@ -3,16 +3,16 @@
 Model::Model(std::string modelName,
 	const char* file_ply,
 	const char* texturePath,
+	MODEL_TYPE type,
 	glm::vec3 poz,
-	glm::vec3 size,
-	MODEL_TYPE mType)
+	glm::vec3 size)
 {
 	name = modelName;
 	LoadPLY(file_ply);
 	LoadTexture(texturePath);
 	Move(poz);
 	Size(size);
-	modelType = mType;
+	modelType = type;
 }
 Model::Model(){
 	throw "Nie podano parametrow tworzonego modelu";

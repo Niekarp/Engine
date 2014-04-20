@@ -20,9 +20,9 @@ public:
 	Model(std::string modelName,
 		const char* file_ply,
 		const char* texturePath,
+		MODEL_TYPE type,
 		glm::vec3 poz,
-		glm::vec3 size,
-		MODEL_TYPE modelType);
+		glm::vec3 size);
 	Model();
 	~Model();
 
