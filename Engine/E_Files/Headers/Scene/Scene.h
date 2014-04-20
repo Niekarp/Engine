@@ -15,7 +15,7 @@ public:
 		glm::vec3 poz,
 		glm::vec3 size);
 	void ObjectDelete(std::string objectName);
-	void LightAdd(LightType lightType, glm::vec3 lightDir);
+	void LightAdd(LightType lightType, glm::vec3 light);
 	void LightDelete(LightType lightType);
 
 	Scene();
