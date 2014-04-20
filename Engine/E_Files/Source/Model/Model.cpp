@@ -1,14 +1,13 @@
-#include <stdio.h>
-#include <vector>
-#include "../../Libs/glm/glm.hpp"
 #include "../../Headers/Model/Model.h"
 
-Model::Model(const char* file_ply,
+Model::Model(std::string modelName,
+	const char* file_ply,
 	const char* texturePath,
 	glm::vec3 poz,
 	glm::vec3 size,
 	MODEL_TYPE mType)
 {
+	name = modelName;
 	LoadPLY(file_ply);
 	LoadTexture(texturePath);
 	Move(poz);
@@ -185,6 +184,9 @@ void Model::Size(glm::vec3 size){
 	modelMatrix *= glm::scale(size);
 }
 
+std::string Model::Name(){
+	return name;
+}
 MODEL_TYPE Model::Type(){
 	return modelType;
 }

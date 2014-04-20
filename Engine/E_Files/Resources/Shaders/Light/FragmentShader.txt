@@ -3,14 +3,18 @@
 in vec2  UV;
 in float diffuse;
 in vec3  ambient;
-in bool  lightType;
+in vec3  lType;
 
 out vec3 ready_pixel;
 uniform sampler2D TextureSampler;
 
 void main(){
-  if (lightType == 0)
+  if (lType == vec3(1, 0, 0))
+     ready_pixel = texture( TextureSampler, UV ).rgb * diffuse;
+  else if (lType == vec3(0, 1, 0))
      ready_pixel = texture( TextureSampler, UV ).rgb * ambient;
-  else
+  else if (lType == vec3(0, 0, 1))
      ready_pixel = texture( TextureSampler, UV ).rgb * ambient * diffuse;
+  else
+     ready_pixel = 0;
 }

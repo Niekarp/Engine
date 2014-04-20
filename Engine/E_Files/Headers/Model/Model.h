@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdio.h>
+#include <vector>
 
 #include "../../Libs/glew/glew.h"
 #include "../../Libs/glm/glm.hpp"
@@ -10,12 +11,14 @@
 
 enum MODEL_TYPE{
 	NON_LIGHTED,
+	DIFFUSE_AND_AMBIENT_LIGHTED,
 	DIFFUSE_LIGHTED,
 	AMBIENT_LIGHTED
 };
 class Model{
 public:
-	Model(const char* file_ply,
+	Model(std::string modelName,
+		const char* file_ply,
 		const char* texturePath,
 		glm::vec3 poz,
 		glm::vec3 size,
@@ -28,6 +31,7 @@ public:
 	void Move(glm::vec3 position);
 	void Size(glm::vec3 size);
 
+	std::string    Name();
 	MODEL_TYPE     Type();
 	const GLfloat* Matrix();
 	GLuint    Bos(GLuint index);
@@ -36,6 +40,8 @@ public:
 	glm::vec3 Position();
 	glm::vec3 Size();
 private:
+	std::string name;
+
 	MODEL_TYPE modelType;
 	glm::mat4  modelMatrix;
 	GLuint     textureID;

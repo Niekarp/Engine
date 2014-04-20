@@ -41,6 +41,9 @@ void LightShader::PassUnif(GLuint argument, const GLfloat* data_pointer){
 	case 2:
 		glUniform3fv(2, 1, data_pointer);
 		break;
+	case 3:
+		glUniform3fv(3, 1, data_pointer);
+		break;
 	default:
 		throw "Blad podczas przekazywania uniformu do NonLightShader'a";
 	};
