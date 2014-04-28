@@ -23,6 +23,7 @@ public:
 		MODEL_TYPE type,
 		glm::vec3 poz,
 		glm::vec3 size);
+	
 	Model();
 	~Model();
 
@@ -36,7 +37,7 @@ public:
 	const GLfloat* Matrix();
 	GLuint    Bos(GLuint index);
 	GLuint    Texture();
-	GLuint    TriangleN();
+	GLuint    VerticesN();
 	glm::vec3 Position();
 	glm::vec3 Size();
 private:
@@ -46,7 +47,7 @@ private:
 	glm::mat4  modelMatrix;
 	GLuint     textureID;
 	GLuint     bos[4];
-	GLuint     triangleNumber;
+	GLuint     verticesN;
 
 	glm::vec3 position;
 	glm::vec3 size;

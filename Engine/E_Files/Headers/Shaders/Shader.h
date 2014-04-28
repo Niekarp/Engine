@@ -1,5 +1,9 @@
 #pragma once
 
+#include <vector>
+#include "../../Libs/glm/glm.hpp"
+#include "../../Libs/glm/gtx/transform.hpp"
+
 #include "IShader.h"
 #include "LightShader.h"
 #include "NonLightShader.h"

@@ -6,13 +6,12 @@ Model::Model(std::string modelName,
 	MODEL_TYPE type,
 	glm::vec3 poz,
 	glm::vec3 size)
+	: name(modelName), modelType(type)
 {
-	name = modelName;
 	LoadPLY(file_ply);
 	LoadTexture(texturePath);
 	Move(poz);
 	Size(size);
-	modelType = type;
 }
 Model::Model(){
 	throw "Nie podano parametrow tworzonego modelu";
@@ -70,7 +69,7 @@ void Model::LoadPLY(const char* filename){
 	float value;
 	for (int i = 0; i < array_elements; i++){
 		for (int j = 0; j < 8; j++){
-			value = atof(text);
+			value = (float)atof(text);
 			switch (j){
 			case 0:
 			case 1:
@@ -94,7 +93,7 @@ void Model::LoadPLY(const char* filename){
 	//Indyk
 	int v[4];
 	for (int i = 0; i < face; i++){
-		value = atof(text);
+		value = (float)atof(text);
 		text += 2;
 		if ((int)value == 3){
 			for (int j = 0; j < 3; j++){
@@ -117,7 +116,7 @@ void Model::LoadPLY(const char* filename){
 			indyk.push_back(v[3]);
 		}
 	}
-	triangleNumber = indyk.size();
+	verticesN = indyk.size();
 
 	glGenBuffers(4, bos);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bos[0]);
@@ -144,9 +143,11 @@ void Model::LoadTexture(const char* imagepath){
 
 	unsigned char* data;
 
-	FILE* file = fopen(imagepath, "r");
-	if (!file) 
+	FILE* file;
+	if (fopen_s(&file, imagepath, "r") != 0){
+		perror("Wystapil blad");
 		throw "Problem z otwarciem pliku z textura";
+	}
 	if (fread(header, 1, 54, file) != 54)
 		throw "Problem z wczytywaniem tekstury";
 	if (header[0] != 'B' || header[1] != 'M')
@@ -168,6 +169,7 @@ void Model::LoadTexture(const char* imagepath){
 
 
 	GLuint makedTexture;
+	glGenBuffers(1, &makedTexture);
 	glBindTexture(GL_TEXTURE_2D, makedTexture);
 	glTexImage2D(GL_TRIANGLES, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, data);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -202,8 +204,8 @@ GLuint    Model::Bos(GLuint index){
 	else
 	    return bos[index];
 }
-GLuint    Model::TriangleN(){
-	return triangleNumber;
+GLuint    Model::VerticesN(){
+	return verticesN;
 }
 glm::vec3 Model::Position(){
 	return position;
