@@ -33,7 +33,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			
 			
 			shader->Draw(scene);
-
 			glfwSwapBuffers(win);
 		}
 		catch (const char* error){
