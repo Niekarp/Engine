@@ -152,11 +152,11 @@ void Model::LoadTexture(const char* imagepath){
 		throw "Problem z wczytywaniem tekstury";
 	if (header[0] != 'B' || header[1] != 'M')
 		throw "Niepoprawny format pliku z textura";
-	
-	dataPos   = *(int*)&(header[0x0A]);
+
+	dataPos = *(int*)&(header[0x0A]);
 	imageSize = *(int*)&(header[0x22]);
-	width     = *(int*)&(header[0x12]);
-	height    = *(int*)&(header[0x16]);
+	width = *(int*)&(header[0x12]);
+	height = *(int*)&(header[0x16]);
 
 	if (imageSize == 0) imageSize = width * height * 3;
 	if (dataPos == 0) dataPos = 54;
@@ -176,7 +176,7 @@ void Model::LoadTexture(const char* imagepath){
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
 	textureID = makedTexture;
-	
+
 	glDeleteTextures(1, &makedTexture);
 }
 void Model::Move(glm::vec3 position){
@@ -202,7 +202,7 @@ GLuint    Model::Bos(GLuint index){
 	if (index > 4 || index < 0)
 		throw "Wyjscie poaza zasieg tablicy bos";
 	else
-	    return bos[index];
+		return bos[index];
 }
 GLuint    Model::VerticesN(){
 	return verticesN;

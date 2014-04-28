@@ -15,16 +15,16 @@ bool Scene::ObjectAdd(
 	glm::vec3 poz,
 	glm::vec3 size)
 {
-    for(unsigned int i = 0; i < models.size(); i++){
-	        if(models.at(i).Name() == objectName)
-			    return false;
-		}
+	for (unsigned int i = 0; i < models.size(); i++){
+		if (models.at(i).Name() == objectName)
+			return false;
+	}
 	models.push_back(Model(objectName, ply_filepath, texturepath, modelType, poz, size));
 	return true;
 }
 bool Scene::ObjectDelete(std::string objectName){
-	for(unsigned int i = 0; i < models.size(); i++){
-	    if(models.at(i).Name() == objectName){
+	for (unsigned int i = 0; i < models.size(); i++){
+		if (models.at(i).Name() == objectName){
 			models.erase(models.begin() + i);
 			return true;
 		}
@@ -32,34 +32,34 @@ bool Scene::ObjectDelete(std::string objectName){
 	return false;
 }
 void Scene::LightAdd(LightType lightType, glm::vec3 light){
-    if(lightType == DIFFUSE) spotlight = light;
+	if (lightType == DIFFUSE) spotlight = light;
 	else if (lightType == AMBIENT) ambientLight = light;
 	else if (lightType == DIFFUSE_AND_AMBIENT){
-	    spotlight = light;
+		spotlight = light;
 		ambientLight = light;
-		}
-	else 
-	    throw "Porblem podczas modyfikacji oswietlenia sceny";
+	}
+	else
+		throw "Porblem podczas modyfikacji oswietlenia sceny";
 }
 void Scene::LightDelete(LightType lightType){
-    if(lightType == DIFFUSE) spotlight = glm::vec3(0, 0, 0);
-    else if (lightType == AMBIENT) ambientLight = glm::vec3(0, 0, 0);
+	if (lightType == DIFFUSE) spotlight = glm::vec3(0, 0, 0);
+	else if (lightType == AMBIENT) ambientLight = glm::vec3(0, 0, 0);
 	else if (lightType == DIFFUSE_AND_AMBIENT){
-	    spotlight = glm::vec3(0, 0, 0);
+		spotlight = glm::vec3(0, 0, 0);
 		ambientLight = glm::vec3(0, 0, 0);
 	}
 	else
-	    throw "Problem podczas usuwania swiatla ze sceny";
+		throw "Problem podczas usuwania swiatla ze sceny";
 }
 void Scene::ComputeMatricesFromInputs(){
 	static float c_angleX = 0;
-    static float c_angleY = 0;
-    static float c_FoV = 45.f;
+	static float c_angleY = 0;
+	static float c_FoV = 45.f;
 	static glm::vec3 c_position = glm::vec3(0.5, 0.5, -0.5);
-    const float speed = 3.f;
-    const float c_mouseSpeed = 0.005f;
+	const float speed = 3.f;
+	const float c_mouseSpeed = 0.005f;
 
-    static double lastTime = glfwGetTime();
+	static double lastTime = glfwGetTime();
 	double currentTime = glfwGetTime();
 	float deltaTime = float(currentTime - lastTime);
 
@@ -110,20 +110,20 @@ void Scene::ComputeMatricesFromInputs(){
 		);
 
 	lastTime = currentTime;
-	
+
 	//~~~~~
 	vp = c_ProjectMatrix * c_ViewMatrix;
 }
 
 std::vector<Model>* Scene::Models(){
-    return &models;
+	return &models;
 }
 glm::vec3* Scene::Spotlight(){
-    return &spotlight;
+	return &spotlight;
 }
 glm::vec3* Scene::AmbientLight(){
-    return &ambientLight;
+	return &ambientLight;
 }
 glm::mat4* Scene::VP(){
-    return &vp;
+	return &vp;
 }
