@@ -8,7 +8,7 @@
 enum LightType {DIFFUSE, AMBIENT, DIFFUSE_AND_AMBIENT};
 class Scene{
 public:
-	Scene(GLFWwindow* window);
+	explicit Scene(GLFWwindow* window);
 	~Scene();
 	
 	bool ObjectAdd(

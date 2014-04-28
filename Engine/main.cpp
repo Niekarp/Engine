@@ -30,7 +30,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			glClear(GL_COLOR_BUFFER_BIT);
 			glfwPollEvents();
 			
-			scene->ObjectAdd("test", "Models/Test/untitled.ply", "Models/Test/test.bmp", NON_LIGHTED, glm::vec3(0.f, 0.f, 0.f), glm::vec3(0.5f, 0.5f, 0.5f));
+			scene->ObjectAdd("test", "Models/Test/test.ply", "Models/Test/test.bmp", NON_LIGHTED, glm::vec3(0.f, 0.f, 0.f), glm::vec3(1.f, 1.f, 1.f));
 			scene->ComputeMatricesFromInputs();
 			
 			shader->Draw(scene);
