@@ -19,7 +19,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	glewInit();
 
 	glViewport(0, 0, 1500, 800);
-    
+	glClearColor(0.005, 0.111, 0.2, 1);
+
 	Shader* shader = new Shader;
 
 	
@@ -30,7 +31,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			glfwPollEvents();
 			
 			scene->ObjectAdd("test", "Models/Test/untitled.ply", "Models/Test/test.bmp", NON_LIGHTED, glm::vec3(0.f, 0.f, 0.f), glm::vec3(0.5f, 0.5f, 0.5f));
-			
+			scene->ComputeMatricesFromInputs();
 			
 			shader->Draw(scene);
 			glfwSwapBuffers(win);
