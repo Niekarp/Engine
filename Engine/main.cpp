@@ -37,7 +37,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			glfwSwapBuffers(win);
 		}
 		catch (const char* error){
-			MessageBox(0, error, "Error", 0);
+			MessageBox(0, error, 0, 0);
 		}
 	}
 	glfwDestroyWindow(win);
